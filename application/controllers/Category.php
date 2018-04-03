@@ -143,13 +143,20 @@ class Category extends My_Controller{
 
 	public function categorySettings($id){
 		$this->load->library('encryption');
-		if(self::categoryExists($where=array('category_id'=>$id))){
-		$category=$this->category->viewCategory($where=array('t1.category_id'=>$id));
+		$where=array(
+			'category_id'=>$id
+		);
+		if(self::categoryExists($where)){
+		$category=$this->category->findCategory($where);
 		if(!empty($category)){
-			$this->current_category=$id;
 			$this->data['verification_id']=$this->encryption->encrypt($category[0]['category_id']);
 			$this->data['page_heading']=$this->data['page_title']='Category Settings: '.$category[0]['category_name'];
-			$this->load->view($this->data['active_theme'].'/admin/category/settings/add',$this->data);
+			if(!empty($category_settings=$this->category->getCategorySettings($where))){
+				$this->data['category_settings']=unserialize($category_settings[0]['settings']);
+				$this->load->view($this->data['active_theme'].'/admin/category/settings/edit',$this->data);
+			}else{
+				$this->load->view($this->data['active_theme'].'/admin/category/settings/add',$this->data);
+			}
 		}
 	}else{
 		$this->session->set_flashdata('error',"OOPs! Category Doesn't Exists.");

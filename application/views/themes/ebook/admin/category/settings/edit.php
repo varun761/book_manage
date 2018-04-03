@@ -20,7 +20,7 @@
 <?php $category_data=array(
 			'name'=>'cat_metakey',
 			'class'=>'form-control',
-			'value'=>set_value('cat_metakey')
+			'value'=>set_value('cat_metakey')?set_value('cat_metakey'):str_replace(',',PHP_EOL,$category_settings['cat_metakey'])
 		);?>
 <?=form_textarea($category_data);?>
 </div>
@@ -31,7 +31,7 @@
 		 'class'          => 'form-control',
 		 'rows'        => '5',
 		 'cols'        => '20',
-		 'value'=>set_value('category_metadis')
+		 'value'=>set_value('category_metadis')?set_value('category_metadis'):$category_settings['cat_metadis']
 	 );
 ?>
 <?=form_textarea($category_dis)?>
@@ -44,10 +44,15 @@
 		'2'=>'Products'
 	);
 	?>
-<?=form_dropdown('choice', $options, '0',$extras=array('class'=>'form-control'))?>
+<?=form_dropdown('choice', $options, $category_settings['choice'],$extras=array('class'=>'form-control'))?>
 </div>
 <div class="form-group">
-	<?=form_checkbox('showdis', 1, TRUE);?>
+	<?php if($category_settings['show_description']==1){
+		$showdis=TRUE;
+	}else{
+		$showdis=FALSE;
+	}?>
+	<?=form_checkbox('showdis', 1, $showdis);?>
 	<?=form_label('Show Category Description ? ')?>
 </div>
 <?=form_hidden('verify',$verification_id);?>
