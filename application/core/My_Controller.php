@@ -12,6 +12,8 @@ Class My_Controller extends CI_Controller{
     $this->CI=&get_instance();
     $this->js_file=array();
     $this->css_file=array();
+    $this->data['meta_keywords']='Shop Categories, All Categories';
+		$this->data['meta_description']="Odummy Store";
     $this->data['theme_folder']=$this->config->item('theme_folder');
     $this->data['active_theme']=$this->data['theme_folder'].'/'.$this->config->item('active_theme');
     $this->data['custom_css_path']=$this->config->base_url().$this->config->item('custom_css_path');
