@@ -132,21 +132,18 @@ class Category_Model extends CI_Model{
 	public function insertCategorySettings($data){
 		if($this->db->insert($this->category_settings_table,$data)){
 			$response=array('status'=>true,'inserted_id'=>$this->db->insert_id());
-			return json_encode($response);
 		}else{
 			$response=array('status'=>false);
-			return json_encode($response);
 		}
+		return $response;
 	}
 
 	public function updateCategorySettings($id,$data){
 		$this->db->where($this->primary_key,$id);
 		if($this->db->update($this->category_settings_table,$data)){
-			$response=array('status'=>true);
-			return json_encode($response);
+			return TRUE;
 		}else{
-			$response=array('status'=>false);
-			return json_encode($response);
+			return FALSE;
 		}
 	}
 

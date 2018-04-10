@@ -11,6 +11,8 @@ class Roles_Model extends CI_Model{
 			->from($this->table_name)
 			->order_by($order_col,$order_by)
       ->limit($limit,$start)
+    //  ->where_not_in('user_role','Admin')
+    //  ->where_not_in('user_role','Subadmin')
 			->get()->result_array();
 		return $query;
 	}

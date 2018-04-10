@@ -60,6 +60,7 @@ $route['admin/category/delete/(:num)']='category/deleteCategory/$1';
 $route['admin/category/edit/(:num)']='category/editCategoryform/$1';
 $route['admin/category/settings/(:num)']='category/categorySettings/$1';
 $route['admin/category/settings/save']='category/saveSettings';
+$route['admin/settings']='settings/index';
 
 $route['admin/category/update']['POST']='category/updateCategory';
 $route['category/action/viewAll']='category/storeView';

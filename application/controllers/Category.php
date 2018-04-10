@@ -29,7 +29,6 @@ class Category extends My_Controller{
 		$this->addJs('bootstrap.min.js','internal');
 		$this->addJs('jquery-ui.js','internal');
 		$this->addJs('cdnjs.cloudflare.com/ajax/libs/validate.js/0.11.1/validate.min.js');
-		
 		//$this->output->enable_profiler(TRUE);
 
 	}
@@ -212,8 +211,7 @@ class Category extends My_Controller{
 				$category_id=$this->encryption->decrypt($this->input->post('verify'));
 				$data=array('settings'=>serialize($category_settings));
 				$response=$this->category->updateCategorySettings($category_id,$data);
-				$response=json_decode($response);
-				if($response->status){
+				if($response){
 					$this->session->set_flashdata('message','Category Settings Successfully Updated');
 				}else{
 					$this->session->set_flashdata('message','Something Went Wrong While Updating Your Data');
@@ -224,8 +222,8 @@ class Category extends My_Controller{
 						'settings'=>serialize($category_settings)
 				);
 				$response=$this->category->insertCategorySettings($final_settings);
-				$response=json_decode($response);
-				if($response->status){
+
+				if($response['status']){
 					$this->session->set_flashdata('message','Category Settings Successfully Saved');
 				}else{
 					$this->session->set_flashdata('message','Something Went Wrong While Saving Your Data');
