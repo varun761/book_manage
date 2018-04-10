@@ -12,7 +12,16 @@
 <div class="col-xs-12 col-lg-9 pull-left">
 
 	<h3><?=$page_heading?></h3>
-
+	<?php
+		if($this->session->flashdata('message')!=null){
+				echo '<div class="alert alert-success">'.$this->session->flashdata('message').'! </div>';
+			}
+	?>
+	<?php
+	if($this->session->flashdata('error')!=null){
+	echo '<div class="alert alert-danger">'.$this->session->flashdata('error').'</div>';
+	}
+	?>
 <?=form_open('admin/category/settings/save',array('id'=>'category_add'))?>
 
 <div class="form-group">

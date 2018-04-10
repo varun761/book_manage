@@ -5,6 +5,7 @@
 	<div class="col-xs-12 col-lg-10 col-center padding-0">
 		<div class="col-xs-12 padding-0">
 			<?php if(validation_errors()!=""){	echo validation_errors();} ?>
+
 		</div>
 <div class="col-xs-12 col-lg-3 pull-left padding-0">
 	<?php $CI->get_sidebar_menu();?>
@@ -12,7 +13,16 @@
 <div class="col-xs-12 col-lg-9 pull-left">
 
 	<h3><?=$page_heading?></h3>
-
+	<?php
+		if($this->session->flashdata('message')!=null){
+				echo '<div class="alert alert-success">'.$this->session->flashdata('message').'! </div>';
+			}
+	?>
+	<?php
+	if($this->session->flashdata('error')!=null){
+	echo '<div class="alert alert-danger">'.$this->session->flashdata('error').'</div>';
+	}
+	?>
 <?=form_open('admin/category/settings/save',array('id'=>'category_add'))?>
 
 <div class="form-group">

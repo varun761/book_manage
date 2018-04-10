@@ -106,18 +106,24 @@ class Category extends My_Controller{
 			$where_array=array('t1.parent_id'=>$parent);
 			$url=$this->category_front;
 			$segment=4;
+			$this->data['meta_keywords']='Shop Categories, All Categories';
+			$this->data['meta_description']="All Categories";
 			$this->data['category_description']=null;
 			$this->data['category_name']='Categories';
 			$this->breadcrumb->add('Categories', base_url('category/action/viewAll'));
 		}else{
 			$where=array('category_slug'=>$parent);
 			if(self::categoryExists($where)==TRUE){
-				$category_id=$this->category->findCategory($where=array('category_slug'=>$parent));
-				$where_array=array('t1.parent_id'=>$category_id[0]['category_id']);
+				$category_data=$this->category->findCategory($where=array('category_slug'=>$parent));
+				$category_id=$category_data[0]['category_id'];
+				$where_array=array('t1.parent_id'=>$category_id);
 				$url='category/'.$parent.'/action/viewAll';
 				$segment=5;
-				$this->data['category_name']=$category_id[0]['category_name'];
-				$this->data['category_description']=$category_id[0]['category_description'];
+				$this->data['meta_keywords']=($this->getMetaKeyword($category_id)!=null)?$this->getMetaKeyword($category_id):$category_data[0]['category_name'];
+				$this->data['meta_description']=$this->getMetaDescription($category_id);
+				$this->data['show_description']="";
+				$this->data['category_name']=$category_data[0]['category_name'];
+				$this->data['category_description']=$category_data[0]['category_description'];
 				$this->breadcrumb->add('Categories', base_url($this->category_front));
 				$category_bread=$this->generateBreadCrumbs($where=array('category_slug'=>$parent));
 				foreach($category_bread as $key=>$val){
@@ -193,7 +199,7 @@ class Category extends My_Controller{
 			}
 			$category_settings=array(
 				'cat_metakey'=>($this->input->post('cat_metakey')!=null)?$this->removeTags($cat_meta):$this->input->post('cat_metakey'),
-				'cat_metadis'=>($this->input->post('cat_metadis')!=null)?$this->removeTags($this->input->post('cat_metadis')):$this->input->post('cat_metadis'),
+				'cat_metadis'=>($this->input->post('category_metadis')!=null)?$this->removeTags($this->input->post('category_metadis')):$this->input->post('category_metadis'),
 				'choice'=>$this->input->post('choice'),
 				'show_description'=>$this->input->post('showdis')
 			);
@@ -203,14 +209,33 @@ class Category extends My_Controller{
 				$category_settings[$key]=$this->cleanInput($val);
 				}
 			}
+			if(!empty($this->category->getCategorySettings(array('category_id'=>$this->encryption->decrypt($this->input->post('verify')))))) {
+				$category_id=$this->encryption->decrypt($this->input->post('verify'));
+				$data=array('settings'=>serialize($category_settings));
+				$response=$this->category->updateCategorySettings($category_id,$data);
+				$response=json_decode($response);
+				if($response->status){
+					$this->session->set_flashdata('message','Category Settings Successfully Updated');
+				}else{
+					$this->session->set_flashdata('message','Something Went Wrong While Updating Your Data');
+				}
+			}else{
+				$final_settings=array(
+						'category_id'=>$this->encryption->decrypt($this->input->post('verify')),
+						'settings'=>serialize($category_settings)
+				);
+				$response=$this->category->insertCategorySettings($final_settings);
+				$response=json_decode($response);
+				if($response->status){
+					$this->session->set_flashdata('message','Category Settings Successfully Saved');
+				}else{
+					$this->session->set_flashdata('message','Something Went Wrong While Saving Your Data');
+				}
+			}
+     redirect('admin/category/settings/'.$this->encryption->decrypt($this->input->post('verify')));
 
-			$final_settings=array(
-					'category_id'=>$this->encryption->decrypt($this->input->post('verify')),
-					'settings'=>serialize($category_settings)
-			);
-			$this->category->insertCategorySettings($final_settings);
 		}else{
-			redirect('admin/category/settings'.$this->current_category);
+			redirect('admin/category');
 		}
 	}
 
@@ -409,6 +434,37 @@ class Category extends My_Controller{
 			$this->session->set_flashdata('error','Oops category cannot updated.');
 			redirect($this->agent->referrer());
 		}
+	}
+
+	protected function getSettings($category_id,$setting_name=null){
+		$where_array=array(
+			'category_id'=>$category_id
+		);
+		$category_settings=$this->category->getCategorySettings($where_array);
+		if(empty($category_settings)){
+			return;
+		}
+		$category_settings=unserialize($category_settings[0]['settings']);
+		if($setting_name=null){
+			return $category_settings;
+		}
+		if(array_key_exists($setting_name,$category_settings)){
+			return $category_settings[0][$setting_name];
+		}else{
+			return;
+		}
+	}
+
+	public function getMetaKeyword($category_id){
+		$category_meta="Online Store, New Arrivals";
+		$category_meta=$this->getSettings($category_id,'cat_metakey');
+		return $category_meta;
+	}
+
+	public function getMetaDescription($category_id){
+		$category_description="This is the online Product shop";
+	  $category_description=$this->getSettings($category_id,'cat_metadis');
+		return $category_description;
 	}
 
 }
