@@ -29,6 +29,8 @@ class Category extends My_Controller{
 		$this->addJs('bootstrap.min.js','internal');
 		$this->addJs('jquery-ui.js','internal');
 		$this->addJs('cdnjs.cloudflare.com/ajax/libs/validate.js/0.11.1/validate.min.js');
+		$this->data['meta_keywords']='Shop Categories, All Categories';
+		$this->data['meta_description']="All Categories";
 		//$this->output->enable_profiler(TRUE);
 
 	}
@@ -106,8 +108,6 @@ class Category extends My_Controller{
 			$where_array=array('t1.parent_id'=>$parent);
 			$url=$this->category_front;
 			$segment=4;
-			$this->data['meta_keywords']='Shop Categories, All Categories';
-			$this->data['meta_description']="All Categories";
 			$this->data['category_description']=null;
 			$this->data['category_name']='Categories';
 			$this->breadcrumb->add('Categories', base_url('category/action/viewAll'));
