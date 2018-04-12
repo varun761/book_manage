@@ -433,7 +433,7 @@ class Category extends My_Controller{
 		}
 	}
 
-	protected function getSettings($category_id,$setting_name=null){
+	protected function getSettings(int $category_id,string $setting_name){
 		$where_array=array(
 			'category_id'=>$category_id
 		);
@@ -441,24 +441,26 @@ class Category extends My_Controller{
 		if(empty($category_settings)){
 			return;
 		}
-		$category_settings=unserialize($category_settings[0]['settings']);
-		if($setting_name=null){
-			return $category_settings;
+
+		$settings=unserialize($category_settings[0]['settings']);
+
+		if(!isset($setting_name)){
+			return $settings;
 		}
-		if(array_key_exists($setting_name,$category_settings)){
-			return $category_settings[0][$setting_name];
+		if(array_key_exists($setting_name,$settings)){
+			return $settings[$setting_name];
 		}else{
 			return;
 		}
 	}
 
-	public function getMetaKeyword($category_id){
+	public function getMetaKeyword(int $category_id){
 		$category_meta="Online Store, New Arrivals";
 		$category_meta=$this->getSettings($category_id,'cat_metakey');
 		return $category_meta;
 	}
 
-	public function getMetaDescription($category_id){
+	public function getMetaDescription(int $category_id){
 		$category_description="This is the online Product shop";
 	  $category_description=$this->getSettings($category_id,'cat_metadis');
 		return $category_description;
