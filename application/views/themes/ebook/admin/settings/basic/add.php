@@ -11,9 +11,9 @@
 </div>
 <div class="col-xs-12 col-lg-9 pull-left">
 
-	<h3>Basic Settings</h3>
+	<h3><?=$heading?></h3>
 
-<?=form_open_multipart('admin/settings/basic/add',array('id'=>'category_add'))?>
+<?=form_open_multipart('admin/settings/basic/save',array('id'=>'category_add'))?>
 <div class="form-group">
 	<?=form_label('Logo :')?>
 	<input type="file" name="website_image" id="website_image">
@@ -41,9 +41,19 @@
 ?>
 <?=form_input($website_tag)?>
 </div>
-
-
-<?=form_submit('save','Save Settings','class="btn btn-default"');?>
+<div class="form-group">
+<?=form_label('Website Description:')?>
+<?php $website_desc = array(
+		 'name'        => 'website_desc',
+		 'class'       => 'form-control',
+		 'rows'				 => 4,
+		 'value'=>set_value('website_desc')
+	 );
+?>
+<?=form_textarea($website_desc)?>
+</div>
+<?=form_hidden('setting_id',$settings);?>
+<?=form_submit('save','Save','class="btn btn-default"');?>
 <?=form_close();?>
 </div>
 </div>

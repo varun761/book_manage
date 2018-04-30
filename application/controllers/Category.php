@@ -5,9 +5,7 @@ class Category extends My_Controller{
 
 	protected $title;
 	protected $description;
-	protected $parent_id;
 	protected $data;
-	protected $current_category;
 	protected $category_breads=array();
 	protected $category_crumbs=array();
 	protected $category_admin='admin/category';
@@ -22,13 +20,6 @@ class Category extends My_Controller{
 		$this->load->model('Category_Model');
 		$this->category=new Category_Model();
 		self::$model=&$this->category;
-		$this->addCss('signup.css','custom');
-		$this->addCss('https://fonts.googleapis.com/css?family=Berkshire+Swash','external');
-		$this->addCss('https://fonts.googleapis.com/css?family=Berkshire+Swash','external');
-		$this->addJs('jquery.min.js','internal');
-		$this->addJs('bootstrap.min.js','internal');
-		$this->addJs('jquery-ui.js','internal');
-		$this->addJs('cdnjs.cloudflare.com/ajax/libs/validate.js/0.11.1/validate.min.js');
 		//$this->output->enable_profiler(TRUE);
 
 	}

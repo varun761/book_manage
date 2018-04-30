@@ -9,12 +9,6 @@ class Login extends My_Controller{
 		parent::__construct();
 		$this->load->helper(array('form','url'));
 		$this->load->library(array('form_validation','pagination','user_agent'));
-		$this->load->model('Category_Model');
-		$this->addCss('https://fonts.googleapis.com/css?family=Berkshire+Swash','external');
-		$this->addCss('https://fonts.googleapis.com/css?family=Berkshire+Swash','external');
-		$this->addCss('signup.css','custom');
-		$this->addJs('jquery.min.js','internal');
-		$this->addJs('bootstrap.min.js','internal');
 		//$this->addJs('additional-methods.min.js','internal');
 		$this->addJs('jquery-ui.js','internal');
 

@@ -14,7 +14,7 @@ class Product extends My_Controller
 	public function add_new_view(){
 		$this->data['action_mode']='add';
 		$this->data['page_title']='Add Product';
-		$this->load->view('back/product/add',$this->data);
+		$this->load->view($this->data['active_theme'].'/admin/product/add',$this->data);
 	}
 	public function add_new_product(){
 		$this->data=array(

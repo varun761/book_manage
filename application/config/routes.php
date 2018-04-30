@@ -60,7 +60,8 @@ $route['admin/category/delete/(:num)']='category/deleteCategory/$1';
 $route['admin/category/edit/(:num)']='category/editCategoryform/$1';
 $route['admin/category/settings/(:num)']='category/categorySettings/$1';
 $route['admin/category/settings/save']='category/saveSettings';
-$route['admin/settings']='settings/index';
+$route['admin/settings/(:any)']='settings/index/$1';
+$route['admin/settings/(:any)/save']='settings/save_settings/$1';
 
 $route['admin/category/update']['POST']='category/updateCategory';
 $route['category/action/viewAll']='category/storeView';
@@ -68,6 +69,7 @@ $route['category/action/viewAll/(:num)']='category/storeView';
 $route['category/(:any)/action/viewAll']='category/storeView/$1';
 $route['category/(:any)/action/viewAll/(:num)']='category/storeView/$1';
 //Product Routes
+
 $route['product/add']='Product/add_new_view';
 $route['product/add_new']='Product/add_new_product';
 //Roles ROUTES

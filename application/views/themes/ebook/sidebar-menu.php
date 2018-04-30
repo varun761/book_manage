@@ -47,9 +47,9 @@
               </a>
           </li>
           <ul class="sub-menu collapse" id="settings">
-              <li><a href="<?=base_url('admin/settings')?>">Basic Settings</a></li>
-              <li>Store Settings</li>
-              <li>Contact Settings</li>
+              <li><a href="<?=base_url('admin/settings/basic')?>">Basic Settings</a></li>
+              <li><a href="<?=base_url('admin/settings/store')?>">Store Settings</a></li>
+              <li><a href="<?=base_url('admin/settings/contact')?>">Contact Settings</a></li>
           </ul>
       </ul>
   </div>
