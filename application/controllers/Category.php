@@ -20,6 +20,7 @@ class Category extends My_Controller{
 		$this->load->model('Category_Model');
 		$this->category=new Category_Model();
 		self::$model=&$this->category;
+		$this->addJs('category.js','custom');
 		//$this->output->enable_profiler(TRUE);
 
 	}
@@ -273,7 +274,7 @@ class Category extends My_Controller{
 			}
 	}
 
-	public static function categoryExists($where=array()){
+	public static function categoryExists($where=array(),$data_type=null){
 		$result=self::$model->findCategory($where);
 		if(!empty($result)){
 			return TRUE;
@@ -367,9 +368,9 @@ class Category extends My_Controller{
 	}
 
 	public function validatecategory(){
-		$this->form_validation->set_rules('cat_name', 'lang:Category Name', 'trim|required|min_length[2]|is_unique[shop_cat.category_name]',array('is_unique'     => 'This %s already exists.'));
-		$this->form_validation->set_rules('category_dis', 'lang:Category Description', 'trim|max_length[250]');
-		$this->form_validation->set_rules('child_cat', 'lang:Parent Category','required|numeric');
+		$this->form_validation->set_rules('cat_name', 'Category Name', 'trim|required|min_length[2]|is_unique[shop_cat.category_name]',array('is_unique'     => 'This %s already exists.'));
+		$this->form_validation->set_rules('category_dis', 'Category Description', 'trim|max_length[250]');
+		$this->form_validation->set_rules('child_cat', 'Parent Category','required|numeric');
 		$this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
 		if ($this->form_validation->run() == FALSE){
 			return FALSE;
@@ -456,7 +457,14 @@ class Category extends My_Controller{
 	  $category_description=$this->getSettings($category_id,'cat_metadis');
 		return $category_description;
 	}
-
+	public function handleCategory(){
+	 if($this->input->post('search_string')!==null){
+		 $result=$this->category->SearchCategory($this->input->post('search_string'));
+		 echo json_encode($result);
+	 }else{
+		 http_response_code(403);
+	 }
+	}
 }
 
 ?>

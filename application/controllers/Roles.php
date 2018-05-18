@@ -121,9 +121,15 @@ class Roles extends My_Controller{
 
   public function deleteRole(int $id){
     if($this->checkExists(array('role_id'=>$id))){
+      $admin_role=$this->Roles_Model->viewRoles(array('user_role'=>'Admin'));
+      if($admin_role[0]['role_id']!=$id){
       $this->Roles_Model->delete($id);
       $this->session->set_flashdata('message','Role Successfully Deleted');
       redirect('roles');
+    }else{
+      $this->session->set_flashdata('error','Cannot delete the admin role.');
+      redirect('roles');
+    }
     }else{
       $this->session->set_flashdata('error','Role Doesnt exists.');
       redirect('roles');

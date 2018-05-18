@@ -11,9 +11,7 @@ class Login extends My_Controller{
 		$this->load->library(array('form_validation','pagination','user_agent'));
 		//$this->addJs('additional-methods.min.js','internal');
 		$this->addJs('jquery-ui.js','internal');
-
 		$this->addJs('http://cdnjs.cloudflare.com/ajax/libs/validate.js/0.11.1/validate.min.js','external');
-		$this->addJs('login.js','custom');
   }
 
 	public function index(){

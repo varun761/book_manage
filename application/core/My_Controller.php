@@ -28,6 +28,7 @@ Class My_Controller extends CI_Controller{
 		$this->addJs('bootstrap.min.js','internal');
 		$this->addJs('jquery-ui.js','internal');
 		$this->addJs('http://cdnjs.cloudflare.com/ajax/libs/validate.js/0.11.1/validate.min.js','external');
+    $this->addJs('jquery.cookie.js','internal');
 
   }
 

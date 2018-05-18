@@ -19,6 +19,14 @@ class Category_Model extends CI_Model{
 		->limit($offest,$records)->get()->result_array();
 		return $query;
 	}
+	public function SearchCategory($search_string){
+		$query=$this->db->select('category_id,category_name')
+					->from('shop_cat')
+					->like('category_name',$search_string)
+					->get()
+					->result_array();
+		return $query;
+	}
 	public function CountCategoryTable($where_array=array()){
 		$query=$this->db->select('t1.category_id,t1.category_slug,t1.category_description,t1.category_name,t1.created_at as created_at,t2.category_name as parent_category')
 		->from('shop_cat as t1')

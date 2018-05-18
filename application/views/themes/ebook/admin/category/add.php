@@ -41,12 +41,21 @@
 </div>
 <div class="form-group">
 <?=form_label('Parent Category :')?>
-<select name="child_cat" class="form-control">
+<?php $category=array(
+			'name'=>'child_category',
+			'class'=>'form-control',
+			'value'=>set_value('child_category'),
+			'id'=>'child_category',
+			'autocomplete'=>"off"
+		);?>
+<?=form_input($category);?>
+<input type="hidden" id="child_cat" name="child_cat" value="">
+<!---<select name="child_cat" class="form-control">
 	<option value="0">Select Parent Category</option>
-	<?php foreach($parent_category as $val):?>
-		<option value="<?=$val['category_id']?>" <?php if(set_value('child_cat')==$val['category_id']){ echo 'selected';}?>><?=$val['category_name']?></option>
-	<?php endforeach; ?>
-</select>
+	<?php //foreach($parent_category as $val):?>
+		<option value="<?php //$val['category_id']?>" <?php //if(set_value('child_cat')==$val['category_id']){ echo 'selected';}?>><?php //$val['category_name']?></option>
+	<?php //endforeach; ?>
+</select>-->
 </div>
 
 <?=form_submit('add','Add New Category','class="btn btn-default"');?>

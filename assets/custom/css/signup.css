@@ -416,3 +416,12 @@ only screen and (max-width: 760px),
     font-size: 15px;
     text-align: justify;
 }
+#child_category\ autocomplete-list{
+  padding: 10px;
+  border-left: 1px solid #d4cece;
+  border-right: 1px solid #d4cece;
+  border-bottom: 1px solid #d4cece;
+}
+.autocomplete-items div {
+ color: #ea8942;
+}

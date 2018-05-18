@@ -68,6 +68,7 @@ $route['category/action/viewAll']='category/storeView';
 $route['category/action/viewAll/(:num)']='category/storeView';
 $route['category/(:any)/action/viewAll']='category/storeView/$1';
 $route['category/(:any)/action/viewAll/(:num)']='category/storeView/$1';
+$route['findCategory']='category/handleCategory';
 //Product Routes
 
 $route['product/add']='Product/add_new_view';
