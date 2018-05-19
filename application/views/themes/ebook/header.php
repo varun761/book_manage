@@ -18,10 +18,10 @@
 	<section id="topbar">
 		<div class="container">
 			<div class="row">
-				<div class="col-xs-12 col-sm-12 col-md-6 text-xs-center text-sm-left text-md-left text-lg-left pull-left">
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-xs-center text-sm-left text-md-left text-lg-left pull-left">
 					Opening Hours : 8 Am to 7pm
 				</div>
-				<div class="col-xs-12 col-sm-12 col-md-6 text-xs-center text-sm-right text-md-right text-lg-right social pull-left">
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-xs-center text-sm-right text-md-right text-lg-right social pull-left">
 					Connect With Us : <i class="fa fa-facebook"></i><i class="fa fa-twitter"></i><i class="fa fa-google-plus"></i>
 				</div>
 		</div>
@@ -51,10 +51,27 @@
 				</div>
 				<div class="collapse navbar-collapse" id="myNavbar">
 				  <ul class="nav navbar-nav">
-					<li><a href="javascript:void(0)">Home</a></li>
-					<li><a href="javascript:void(0)">Shop</a></li>
+					<li>
+						<a href="javascript:void(0)">
+							<i class="fa fa-home"></i>
+							<span class="nav-text">Home</span>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)">
+							<i class="fa fa-shopping-bag"></i>
+							<span class="nav-text">Shop</span>
+						</a>
+					</li>
 					<li><a href="<?php echo base_url('category/action/viewAll');?>">Categories</a></li>
-					<li><a href="javascript:void(0)">Contact Us</a></li>
+					<li>
+						<a href="javascript:void(0)">
+							<i class="fa fa-map-signs"></i>
+							<span class="nav-text">
+							Contact Us
+						  </span>
+						</a>
+					</li>
 				  </ul>
 				  <ul class="nav navbar-nav navbar-right">
 					<li class="active"><a href="http://localhost/book_manage_html/front_html/signup.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>

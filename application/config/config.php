@@ -380,7 +380,7 @@ $config['encryption_key'] = hex2bin('a7f1686827db40f5e33fd299efa9af09');
 $config['sess_driver'] = 'files';
 $config['sess_cookie_name'] = 'ci_session';
 $config['sess_expiration'] = 7200;
-$config['sess_save_path'] = BASEPATH.'book_manage/cache/';
+$config['sess_save_path'] = FCPATH.'application/ci_sessions/';
 $config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 300;
 $config['sess_regenerate_destroy'] = FALSE;
@@ -453,7 +453,7 @@ $config['csrf_token_name'] = 'store_authorised_token';
 $config['csrf_cookie_name'] = 'store_authorised_cookie';
 $config['csrf_expire'] = 7200;
 $config['csrf_regenerate'] = TRUE;
-$config['csrf_exclude_uris'] = array('admin/category/add');
+$config['csrf_exclude_uris'] = array('admin/category/add','admin/category/findCategory');
 
 /*
 |--------------------------------------------------------------------------
