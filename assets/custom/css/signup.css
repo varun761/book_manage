@@ -1,20 +1,338 @@
-#main-body{ font-family:'Open Sans',sans serif; } #signup-here .errorn {font-weight: 100;color: red;margin-top: 2px;} .signupradio{ margin:0;} #topbar{ background: #c5ddff;color:#40415e; padding:5px 0; }.g-recaptcha {margin-top: 15px;}#gender-error {position: absolute;bottom: -21px;left: -18px;}.form-error{padding:0;}.error.valid{ display:none;}.social .fa { margin-left: 10px; }  #logo h2{ font-family: 'Berkshire Swash', cursive; margin:5px 0; }#iagree-error {position: absolute;bottom: -19px;left: -17px;}.sigmeup.btn.btn-primary {margin-top: 15px;}  #logo { padding: 20px 0; } #logo h4{ margin:5px 0; font-family:'Open Sans',sans serif; } .form-control[readonly] { background-color: #fff; } #signup-here .error{ font-weight:100; color:red; margin-top:2px; } #main-nav{ background:#c5ddff; }  #myNavbar{ padding:0; } .navbar-inverse .navbar-nav > li > a { color:#40415e; } .navbar{ background:transparent; margin-bottom:0;border-color: #c5ddff; } .signup-form,.loginform{ margin-top:40px; margin-bottom:40px; border:1px solid grey; padding:10px 20px; } .signup-form h3,.loginform h3{ margin:5px 0; } .signup-form h4{ margin:0 0 5px; } #signup-here{  width:100%; margin-top:15px; } #signup-here .form-group{ padding:0; } #signup-here .form-group:nth-child(1){ padding-left:0; padding-right:10px; } #signup-here .form-group:nth-child(2){ padding-right:0; padding-left:10px; } #signup-here .form-group .form-label{ font-weight:100; }.signupradio{ padding:0; } .form-label[for="sex"]{ padding:0; } .signupass input[name="password"]{ z-index:-1; position:relative; } .signupass .show-pass{ z-index:1; position:absolute; cursor:pointer; } .signup.page #main-body{ background:url('../../img/signupwall.jpg'); background-repeat:no-repeat; background-size:cover; } .signup-form,.loginform{ background:#fff; } .site-footer{ background:#c5ddff; color:#40415e; padding-top:10px; padding-bottom:10px; } .site-footer a{ color:#40415e; } /*Text Align Css*/ .inner-addon { position: relative; }  /* style icon */ .inner-addon .glyphicon { position: absolute; padding: 10px; pointer-events: none; }  /* align icon */ .left-addon .glyphicon  { left:  0px;} .right-addon .glyphicon { right: 0px;}  /* add padding  */ .left-addon input  { padding-left:  30px; } .right-addon input { padding-right: 30px; } .text-xs-left { text-align: left !important; }  .text-xs-right { text-align: right !important; }  .text-xs-center { text-align: center !important; }  .text-xs-justify { text-align: justify !important; } @media (max-width:767px){ #gender-error {position: absolute;bottom: -47px;}.g-recaptcha {margin-top: 15px;}.radio.signupradio {margin-top: 5px;}#signup-here .form-group:nth-child(1){ padding:0; } #signup-here .form-group:nth-child(2){ padding:0; } }  @media (min-width: 768px) { .text-sm-left { text-align: left !important; }  .text-sm-right { text-align: right !important; }  .text-sm-center { text-align: center !important; }  .text-sm-justify { text-align: justify !important; } }  @media (min-width: 992px) { .text-md-left { text-align: left !important; }  .text-md-right { text-align: right !important; }  .text-md-center { text-align: center !important; }  .text-md-justify { text-align: justify !important; } }  @media (min-width: 1200px) { .text-lg-left { text-align: left !important; }  .text-lg-right { text-align: right !important; }  .text-lg-center { text-align: center !important; }  .text-lg-justify { text-align: justify !important; } }#login-here .form-group,#login-here-1 .form-group,#login-here-2 .form-group {
+#main-body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+#signup-here .errorn {
+    font-weight: 100;
+    color: red;
+    margin-top: 2px;
+}
+
+.signupradio {
+    margin: 0;
+}
+
+#topbar {
+    background: #f5921466;
+    color: #2a8f9b;
+    padding: 5px 0;
+}
+.navbar.navbar-inverse{
+	border:none;
+}
+.g-recaptcha {
+    margin-top: 15px;
+}
+.login.btn.btn-default {
+    width: 100%;
+    padding: 10px 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: #f5921466;
+    border: none;
+    box-shadow: 0px 2px 3px #888;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+#gender-error {
+    position: absolute;
+    bottom: -21px;
+    left: -18px;
+}
+
+.form-error {
+    padding: 0;
+}
+
+.error.valid {
+    display: none;
+}
+
+.social .fa {
+    margin-left: 10px;
+}
+
+#logo h2 {
+    font-family: 'Berkshire Swash', cursive;
+    margin: 5px 0;
+}
+
+#iagree-error {
+    position: absolute;
+    bottom: -19px;
+    left: -17px;
+}
+
+.sigmeup.btn.btn-primary {
+    margin-top: 15px;
+}
+
+#logo {
+    padding: 20px 0;
+}
+
+#logo h4 {
+    margin: 5px 0;
+    font-family: 'Open Sans', sans serif;
+}
+
+.form-control[readonly] {
+    background-color: #fff;
+}
+
+#signup-here .error {
+    font-weight: 100;
+    color: red;
+    margin-top: 2px;
+}
+
+#main-nav {
+    background: #f5921466;
+}
+
+#myNavbar {
+    padding: 0;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #2a8f9b;
+}
+
+.navbar {
+    background: transparent;
+    margin-bottom: 0;
+    border-color: #c5ddff;
+}
+
+.signup-form,
+.loginform {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    border: 1px solid grey;
+    padding: 10px 20px;
+}
+
+.signup-form h3,
+.loginform h3 {
+    margin: 5px 0;
+}
+
+.signup-form h4 {
+    margin: 0 0 5px;
+}
+
+#signup-here {
+    width: 100%;
+    margin-top: 15px;
+}
+
+#signup-here .form-group {
+    padding: 0;
+}
+
+/*#signup-here .form-group:nth-child(1) {
+    padding-left: 0;
+    padding-right: 10px;
+}*/
+
+/*#signup-here .form-group:nth-child(2) {
+    padding-right: 0;
+    padding-left: 10px;
+}*/
+
+#signup-here .form-group .form-label {
+    font-weight: 100;
+}
+
+.signupradio {
+    padding: 0;
+}
+
+.form-label[for="sex"] {
+    padding: 0;
+}
+
+.signupass input[name="password"] {
+    z-index: -1;
+    position: relative;
+}
+
+.signupass .show-pass {
+    z-index: 1;
+    position: absolute;
+    cursor: pointer;
+}
+
+.signup.page #main-body {
+    background: url('../../img/signupwall.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.signup-form,
+.loginform {
+    background: #fff;
+}
+
+.site-footer {
+    background: #c5ddff;
+    color: #40415e;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.site-footer a {
+    color: #40415e;
+}
+
+
+/*Text Align Css*/
+
+.inner-addon {
+    position: relative;
+}
+
+
+/* style icon */
+
+.inner-addon .glyphicon {
+    position: absolute;
+    padding: 10px;
+    pointer-events: none;
+}
+
+
+/* align icon */
+
+.left-addon .glyphicon {
+    left: 0px;
+}
+
+.right-addon .glyphicon {
+    right: 0px;
+}
+
+
+/* add padding  */
+
+.left-addon input {
+    padding-left: 30px;
+}
+
+.right-addon input {
+    padding-right: 30px;
+}
+
+.text-xs-left {
+    text-align: left !important;
+}
+
+.text-xs-right {
+    text-align: right !important;
+}
+
+.text-xs-center {
+    text-align: center !important;
+}
+
+.text-xs-justify {
+    text-align: justify !important;
+}
+
+@media (max-width:767px) {
+	#myNavbar {
+
+    position: absolute;
+    background: #fbd3a1;
+    width: 100%;
+    z-index: 2;
+
+}
+    #gender-error {
+        position: absolute;
+        bottom: -47px;
+    }
+    .g-recaptcha {
+        margin-top: 15px;
+    }
+    .radio.signupradio {
+        margin-top: 5px;
+    }
+    #signup-here .form-group:nth-child(1) {
+        padding: 0;
+    }
+    #signup-here .form-group:nth-child(2) {
+        padding: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .text-sm-left {
+        text-align: left !important;
+    }
+    .text-sm-right {
+        text-align: right !important;
+    }
+    .text-sm-center {
+        text-align: center !important;
+    }
+    .text-sm-justify {
+        text-align: justify !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .text-md-left {
+        text-align: left !important;
+    }
+    .text-md-right {
+        text-align: right !important;
+    }
+    .text-md-center {
+        text-align: center !important;
+    }
+    .text-md-justify {
+        text-align: justify !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    .text-lg-left {
+        text-align: left !important;
+    }
+    .text-lg-right {
+        text-align: right !important;
+    }
+    .text-lg-center {
+        text-align: center !important;
+    }
+    .text-lg-justify {
+        text-align: justify !important;
+    }
+}
+#login-here .form-group,#signup-here .form-group,#login-here-1 .form-group,#login-here-2 .form-group {
     padding: 0;
     margin: 10px 0;
+	text-align:center;
+}
+#username,#password,#email,#fname,#lname,#cpassword {
+    padding: 20px 10px;
+    text-align: center;
 }
 .adverts_block {
     padding: 15px 12px;
 }
 .navbar-inverse .navbar-nav > li > a:focus, .navbar-inverse .navbar-nav > li > a:hover {
-    color: #fff;
+    color: #41c2d1;
   }
-#login-here .error {
+#login-here .error,#signup-here .error {
     color: red;
     font-weight: 100;
     margin-top: 3px;
 }
 .main-content{
-  padding:20px 0;
+  padding:0 0 20px;
 }
 .col-center {
     float: none;
@@ -326,20 +644,21 @@ only screen and (max-width: 760px),
     float: left;
     border-right: 1px solid #fff;
 }
-#login-here,#login-here-1,#login-here-2 {
+#login-here,#signup-here,#login-here-1,#login-here-2 {
     float: left;
-    padding: 15px 15px;
+    /*padding: 15px 15px;*/
     width: 100%;
-    border: 6px solid steelblue;
+    /*border: 6px solid steelblue;*/
 	margin:10px 0;
 }
 .login_tab li:hover {
     background: black;
     color: #fff;
 }
-#login-here label {
+#login-here label,#signup-here label {
     font-weight: 100;
     font-variant-caps: petite-caps;
+	font-weight:500;
 }
 .loginform .alert.alert-danger {
     margin-bottom: 5px;
@@ -362,7 +681,7 @@ only screen and (max-width: 760px),
     padding:10px;
 }
 .category {
-    margin-top: 25px;
+    margin-bottom:25px;
 }
 .category_image img{
 	width:100%;
@@ -406,13 +725,26 @@ only screen and (max-width: 760px),
 	margin-bottom:10px;
 }
 .breadcrumb {
-    margin-top: 20px;
+    background: transparent;
+	margin: 0 auto;
+	max-width: 1170px;
+	color: #000;
+}
+.breadcrumb li a{
+	text-decoration:none;
+}
+.categorydiv{
+	max-width:1170px;
+}
+.breadcrumb li.active{
+	color:#000;
 }
 .category_heading{
-	font-family:'Berkshire Swash', cursive;
+	color:#2a8f9b;
+	margin-bottom: 20px;
 }
 .category_dis {
-    padding: 10px 20px;
+    padding: 10px 17px;
     font-size: 15px;
     text-align: justify;
 }
@@ -424,4 +756,7 @@ only screen and (max-width: 760px),
 }
 .autocomplete-items div {
  color: #ea8942;
+}
+.nocontent {
+    padding: 0 3px;
 }

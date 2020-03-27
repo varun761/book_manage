@@ -1,8 +1,9 @@
 <?php $CI =&get_instance();?>
 <?php $CI->get_header();?>
+<?=$breadcrumb?>
 <div class="main-content">
 <div class="container-fluid">
-	<div class="col-xs-12 col-lg-10 col-center padding-0">
+	<div class="col-xs-12 col-lg-10 col-center padding-0 categorydiv">
 <div class="col-xs-12 col-lg-12">
 	<?php
 		if($this->session->flashdata('message')!=null){
@@ -14,17 +15,13 @@
 	echo '<div class="alert alert-danger">'.$this->session->flashdata('error').'</div>';
 	}
 	?>
-	<h3 class="category_heading text-center"><?=strtoupper($category_name)?></h3>
+	<h3 class="category_heading"><?=strtoupper($category_name)?></h3>
+	<?php if(isset($category_description) && $category_description!=""){?>
 	<div class="row">
 	<div class="col-xs-12 category_dis"><?=$category_description?></div>
 	</div>
-	<?=$breadcrumb?>
+	<?php }?>
 	<div class="row">
-		<?php if(!empty($view_data)):?>
-			<div class="col-sm-12 total_records">
-			<?php echo "Total Categories:".$total_records.'<br>';?>
-			</div>
-		<?php endif;?>
 		<div class="col-sm-12">
 
 
@@ -39,7 +36,7 @@
 	</div>
 <?php } ?>
 <?php else:?>
-<p>No category can match your criteria</p>
+<p class="nocontent">No category or product found.</p>
 <?php endif;?>
 <?php if (isset($links)) { ?>
 	<div class="col-xs-12 pull-left page_links text-center">

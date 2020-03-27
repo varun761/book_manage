@@ -20,7 +20,7 @@ class Category extends My_Controller{
 		$this->load->model('Category_Model');
 		$this->category=new Category_Model();
 		self::$model=&$this->category;
-		$this->addJs('category.js','custom');
+		$this->addJs('category_image.js','custom');
 		//$this->output->enable_profiler(TRUE);
 
 	}
@@ -100,7 +100,7 @@ class Category extends My_Controller{
 			$segment=4;
 			$this->data['category_description']=null;
 			$this->data['category_name']='Categories';
-			$this->breadcrumb->add('Categories', base_url('category/action/viewAll'));
+			//$this->breadcrumb->add('Categories', base_url('category/action/viewAll'));
 		}else{
 			$where=array('category_slug'=>$parent);
 			if(self::categoryExists($where)==TRUE){
@@ -256,7 +256,8 @@ class Category extends My_Controller{
 				redirect('category/add');
 			}
 			$response=$this->uploadCatimage();
-
+			print_r($response);
+			die;
 			if($response['status']=='success'){
 
 			}else{
@@ -308,16 +309,16 @@ class Category extends My_Controller{
 
 	public function uploadCatimage($field_name='category_image'){
 		$imagename=time().$_FILES[$field_name]['name'];
-		$image_config['file_name']						=$imagename;
-		$image_config['upload_path']          = './uploads/category/';
-		$image_config['allowed_types']        = 'jpg|png';
-		$image_config['max_size']             = 100;
-		$image_config['encrypt_name']					= TRUE;
-		$image_config['remove_spaces']				= TRUE;
+		$image_config['file_name']= $imagename;
+		$image_config['upload_path']= './uploads/category/';
+		$image_config['allowed_types']= 'jpg|png';
+		$image_config['max_size'] = 2048;
+		$image_config['encrypt_name']= TRUE;
+		$image_config['remove_spaces']= TRUE;
 		$this->load->library('upload', $image_config);
 		if(!$this->upload->do_upload($field_name))
-    {
-      $response = array('status'=>'error','data' => $this->upload->display_errors());
+		{
+			$response = array('status'=>'error','data' => $this->upload->display_errors());
 		}else{
 			$upload_data=$this->upload->data();
 			$resize_config['image_library'] = 'gd2';
@@ -328,7 +329,7 @@ class Category extends My_Controller{
 			$resize_config['height']       = 237;
 			$this->load->library('image_lib', $resize_config);
 			$this->image_lib->resize();
-      $response= array('status'=>'success','data' => $upload_data);
+			$response= array('status'=>'success','data' => $upload_data);
 		}
 		return $response;
 	}
@@ -366,14 +367,36 @@ class Category extends My_Controller{
 		$this->data['page_title']='Update Category';
 		$this->load->view($this->data['active_theme'].'/admin/category/edit',$this->data);
 	}
-
+	/*
+	Validate the category form data
+	*/
 	public function validatecategory(){
 		$this->form_validation->set_rules('cat_name', 'Category Name', 'trim|required|min_length[2]|is_unique[shop_cat.category_name]',array('is_unique'     => 'This %s already exists.'));
 		$this->form_validation->set_rules('category_dis', 'Category Description', 'trim|max_length[250]');
-		$this->form_validation->set_rules('child_cat', 'Parent Category','required|numeric');
+		$this->form_validation->set_rules('child_cat', 'Parent Category','numeric|callback_validate_parent');
+		$this->form_validation->set_rules('category_image','Category Image','numeric|callback_validate_image');
 		$this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
 		if ($this->form_validation->run() == FALSE){
 			return FALSE;
+		}else{
+			return TRUE;
+		}
+	}
+	public function validate_parent(){
+		if($_POST['child_cat']==0){
+			return TRUE;
+		}
+		if(self::categoryExists($where=array('category_id'=>$_POST['child_cat']))==FALSE){
+			$this->form_validation->set_message('validate_category_child', 'The child category does not exists');
+			return FALSE;
+		}
+		return TRUE;
+	}
+	
+	public function validate_image(){
+		if(isset($_FILES['category_image']['size']) && $_FILES['category_image']['size']/1000000>2){
+			$this->form_validation->set_message('validate_image', 'The category image should not be greater than 2MB');
+    	return FALSE;
 		}else{
 			return TRUE;
 		}
@@ -451,7 +474,6 @@ class Category extends My_Controller{
 		$category_meta=$this->getSettings($category_id,'cat_metakey');
 		return $category_meta;
 	}
-
 	public function getMetaDescription(int $category_id){
 		$category_description="This is the online Product shop";
 	  $category_description=$this->getSettings($category_id,'cat_metadis');
@@ -466,5 +488,4 @@ class Category extends My_Controller{
 	 }
 	}
 }
-
 ?>

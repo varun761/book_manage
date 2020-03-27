@@ -42,6 +42,8 @@ class Settings extends My_Controller{
   public function validate_settings(){
     $this->form_validation->set_rules('setting_id','Action',array('required',function($str){
       $action=$this->encryption->decrypt($str);
+	  print_r($action);
+	  die;
       if($action=='basic' || $action=='store' || $action=='contact'){
         return TRUE;
       }

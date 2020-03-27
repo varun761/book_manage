@@ -41,6 +41,7 @@
 	</section>
 	<section id="main-nav">
 		<div class="container">
+			<div class="row">
 			 <nav class="navbar navbar-inverse">
 				<div class="navbar-header">
 				  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -74,11 +75,12 @@
 					</li>
 				  </ul>
 				  <ul class="nav navbar-nav navbar-right">
-					<li class="active"><a href="http://localhost/book_manage_html/front_html/signup.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-					<li><a href="http://localhost/book_manage/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+					<li class="active"><a href="<?php echo base_url('signup');?>"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+					<li><a href="<?php echo base_url('login');?>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 				  </ul>
 				</div>
 			</nav>
+		</div>
 		</div>
 	</section>
 </header>

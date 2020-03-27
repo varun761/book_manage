@@ -39,7 +39,7 @@ class Login extends My_Controller{
 
 	public function proceedLogin(){
 		if(!empty($this->login_data)){
-
+			print_r($this->login_data);
 		}
 
 

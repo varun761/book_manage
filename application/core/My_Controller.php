@@ -22,12 +22,12 @@ Class My_Controller extends CI_Controller{
     $this->data['bootstrap_path']=$this->config->base_url().$this->config->item('bootstrap_path');
     $this->data['js_path']=$this->config->base_url().$this->config->item('js_path');
     $this->addCss('signup.css','custom');
-		$this->addCss('https://fonts.googleapis.com/css?family=Berkshire+Swash','external');
-		$this->addCss('https://fonts.googleapis.com/css?family=Berkshire+Swash','external');
-		$this->addJs('jquery.min.js','internal');
-		$this->addJs('bootstrap.min.js','internal');
-		$this->addJs('jquery-ui.js','internal');
-		$this->addJs('http://cdnjs.cloudflare.com/ajax/libs/validate.js/0.11.1/validate.min.js','external');
+	$this->addCss('https://fonts.googleapis.com/css?family=Berkshire+Swash|Montserrat:300,400,500,600,700,800,900','external');
+	//$this->addCss('https://fonts.googleapis.com/css?family=','external');
+	$this->addJs('jquery.min.js','internal');
+	$this->addJs('bootstrap.min.js','internal');
+	$this->addJs('jquery-ui.js','internal');
+	$this->addJs('http://cdnjs.cloudflare.com/ajax/libs/validate.js/0.11.1/validate.min.js','external');
     $this->addJs('jquery.cookie.js','internal');
 
   }

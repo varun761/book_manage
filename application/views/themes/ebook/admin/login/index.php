@@ -7,7 +7,7 @@
 
 
 				<div class="loginform col-xs-12 col-sm-6 col-md-5 col-sm-offset-3 col-md-offset-4">
-					<h3 class="maintitle text-center">Login</h3>
+					<h3 class="maintitle text-center">HELLO GUEST</h3>
 					<div class="col-xs-12 padding-0">
 						<?php if(validation_errors()!=""){	echo '<div class="alert alert-danger">'.validation_errors().'</div>';} ?>
 					</div>

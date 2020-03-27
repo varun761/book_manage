@@ -55,5 +55,5 @@
   </div>
 </div>
 <div class="adverts_block">
-<!--<div data-WRID="WRID-151257826479145664" data-widgetType="staticBanner" data-responsive="yes" data-class="affiliateAdsByFlipkart" height="250" width="300"></div><script async src="//affiliate.flipkart.com/affiliate/widgets/FKAffiliateWidgets.js"></script>
---></div>
+<div data-WRID="WRID-151257826479145664" data-widgetType="staticBanner" data-responsive="yes" data-class="affiliateAdsByFlipkart" height="250" width="300"></div><script async src="//affiliate.flipkart.com/affiliate/widgets/FKAffiliateWidgets.js"></script>
+</div>

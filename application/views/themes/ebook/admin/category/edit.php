@@ -3,7 +3,13 @@
 <div class="main-content">
 <div class="container-fluid">
 	<div class="col-xs-12 col-lg-10 col-center padding-0">
-		<div class="col-xs-12 padding-0">
+<div class="col-xs-12 col-lg-3 pull-left padding-0">
+	<?php $CI->get_sidebar_menu();?>
+</div>
+<div class="col-xs-12 col-lg-9 pull-left">
+
+	<h3>Update Category</h3>
+	<div class="col-xs-12 padding-0">
 			<?php
 				if($this->session->flashdata('message')!=null){
 						echo '<div class="alert alert-success">'.$this->session->flashdata('message').'! </div>';
@@ -16,12 +22,6 @@
 			?>
 
 		</div>
-<div class="col-xs-12 col-lg-3 pull-left padding-0">
-	<?php $CI->get_sidebar_menu();?>
-</div>
-<div class="col-xs-12 col-lg-9 pull-left">
-
-	<h3>Update Category</h3>
 <?=form_open_multipart('admin/category/update',array('id'=>'categoryedit'),array('edit_id'=>$editid))?>
 <div class="form-group">
 	<?=form_label('Category Image :')?>
