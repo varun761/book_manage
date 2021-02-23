@@ -7,12 +7,12 @@
 
 
 				<div class="loginform col-xs-12 col-sm-6 col-md-5 col-sm-offset-3 col-md-offset-4">
-					<h3 class="maintitle text-center">CREATE NEW ACCOUNT</h3>
+					<h3 class="maintitle text-center">SignUp</h3>
 					<div class="col-xs-12 padding-0">
 						<?php if(validation_errors()!=""){	echo '<div class="alert alert-danger">'.validation_errors().'</div>';} ?>
 					</div>
 					<?=form_open_multipart('signup',array('id'=>'signup-here'))?>
-						<div class="col-xs-12 col-sm-12 form-group">
+						<div class="col-xs-12 col-sm-12 form-group text-left">
 							<?=form_label('First Name *')?>
 							<?php $username_data=array(
 										'name'=>'fname',
@@ -23,7 +23,7 @@
 									);?>
 							<?=form_input($username_data);?>
 						</div>
-						<div class="col-xs-12 col-sm-12 form-group">
+						<div class="col-xs-12 col-sm-12 form-group text-left">
 							<?=form_label('Last Name')?>
 							<?php $username_data=array(
 										'name'=>'lname',
@@ -34,7 +34,7 @@
 									);?>
 							<?=form_input($username_data);?>
 						</div>
-						<div class="col-xs-12 col-sm-12 form-group">
+						<div class="col-xs-12 col-sm-12 form-group text-left">
 							<?=form_label('Email *')?>
 							<?php $username_data=array(
 										'name'=>'email',
@@ -45,7 +45,7 @@
 									);?>
 							<?=form_input($username_data);?>
 						</div>
-						<div class="col-xs-12 col-sm-12 form-group">
+						<div class="col-xs-12 col-sm-12 form-group text-left">
 							<?=form_label('Username *')?>
 							<?php $username_data=array(
 										'name'=>'username',
@@ -57,7 +57,7 @@
 							<?=form_input($username_data);?>
 						</div>
 
-						<div class="col-xs-12 col-sm-12 form-group padding-0">
+						<div class="col-xs-12 col-sm-12 form-group padding-0 text-left">
 							<?=form_label('Password *')?>
 							<?php $password_data=array(
 										'name'=>'password',
@@ -68,7 +68,7 @@
 									);?>
 							<?=form_password($password_data);?>
 						</div>
-						<div class="col-xs-12 col-sm-12 form-group padding-0">
+						<div class="col-xs-12 col-sm-12 form-group padding-0 text-left">
 							<?=form_label('Confirm Password *')?>
 							<?php $password_data=array(
 										'name'=>'cpassword',
@@ -78,33 +78,6 @@
 										'placeholder'=>'Confirm Password'
 									);?>
 							<?=form_password($password_data);?>
-						</div>
-						<div class="col-xs-12 col-sm-12 form-group padding-0">
-							<?=form_label('Signup as a *')?>
-							<?php $role_data=array(
-										'name'=>'role',
-										'class'=>'form-control',
-										'value'=>'customer',
-										'id'=>'role'
-									);?>
-							<?=form_label('Customer')?>
-							<?=form_radio($role_data);?>
-							<?php $role_data=array(
-										'name'=>'role',
-										'class'=>'form-control',
-										'value'=>'dealer',
-										'id'=>'role'
-									);?>
-							<?=form_label('Dealer')?>
-							<?=form_radio($role_data);?>
-							<?php $role_data=array(
-										'name'=>'role',
-										'class'=>'form-control',
-										'value'=>'delivery',
-										'id'=>'role'
-									);?>
-							<?=form_label('Delivery')?>
-							<?=form_radio($role_data);?>
 						</div>
 						<div class="col-xs-12 form-group checkbox">
 							<label><input type="checkbox" name="agreepolicy" value="agree"> I read all your privacy policies and agree to use your service.</label>

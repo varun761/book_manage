@@ -12,22 +12,23 @@ class Signup extends My_Controller{
 		//$this->addJs('additional-methods.min.js','internal');
 		$this->addJs('jquery-ui.js','internal');
 		$this->addJs('http://cdnjs.cloudflare.com/ajax/libs/validate.js/0.11.1/validate.min.js','external');
+		$this->addJs('https://www.google.com/recaptcha/api.js','external');
   }
 
 	public function index(){
 		$this->data['page_title']='oDummy Store | Signup';
 		if($this->validate()==FALSE){
-		$this->load->view($this->data['active_theme'].'/admin/signup/index',$this->data);
-	}else{
-		$this->signup_data=array(
+			$this->load->view($this->data['active_theme'].'/admin/signup/index',$this->data);
+		}else{
+			$this->signup_data=array(
 			'username'=>$this->input->post('username'),
 			'firstname'=>$this->input->post('fname'),
 			'lastname'=>$this->input->post('lname'),
 			'email'=>$this->input->post('email'),
 			'pass_key'=>$this->input->post('password')
-		);
-		$this->proceedSignup();
-	}
+			);
+			$this->proceedSignup();
+		}
 	}
 
 	public function validate(){
@@ -44,11 +45,7 @@ class Signup extends My_Controller{
 	}
 
 	public function proceedLogin(){
-		if(!empty($this->login_data)){
-			print_r($this->login_data);
-		}
-
-
+		
 	}
 
 	public function checkValid(){

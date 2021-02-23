@@ -180,6 +180,8 @@
     color: #40415e;
     padding-top: 10px;
     padding-bottom: 10px;
+	z-index: -1;
+    position: relative;
 }
 
 .site-footer a {
@@ -311,17 +313,22 @@
         text-align: justify !important;
     }
 }
-#login-here .form-group,#signup-here .form-group,#login-here-1 .form-group,#login-here-2 .form-group {
+#login-here .form-group,#login-here-1 .form-group,#login-here-2 .form-group {
     padding: 0;
     margin: 10px 0;
 	text-align:center;
 }
+#signup-here .form-group {
+	padding: 0;
+    margin: 10px 0;
+}
+
 #username,#password,#email,#fname,#lname,#cpassword {
     padding: 20px 10px;
-    text-align: center;
 }
 .adverts_block {
     padding: 15px 12px;
+	display: contents;
 }
 .navbar-inverse .navbar-nav > li > a:focus, .navbar-inverse .navbar-nav > li > a:hover {
     color: #41c2d1;
@@ -541,6 +548,7 @@ only screen and (max-width: 760px),
   padding-left: 0px;
   border-left: 3px solid #2e353d;
   border-bottom: 1px solid #23282e;
+  padding: 10px;
 }
 .nav-side-menu li a {
   text-decoration: none;

@@ -2,11 +2,11 @@
 <?php $CI->get_header();?>
 <div class="main-content">
 <div class="container-fluid">
-	<div class="col-xs-12 col-lg-10 col-center padding-0">
-<div class="col-xs-12 col-lg-3 pull-left padding-0">
+	<div class="row">
+<div class="col-xs-12 col-sm-3 col-lg-2 pull-left padding-0">
 	<?php $CI->get_sidebar_menu();?>
 </div>
-<div class="col-xs-12 col-lg-9 pull-left">
+<div class="col-xs-12 ool-sm-9 col-lg-10 pull-left">
 
 	<h3>Update Category</h3>
 	<div class="col-xs-12 padding-0">

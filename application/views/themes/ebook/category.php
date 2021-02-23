@@ -3,7 +3,7 @@
 <?=$breadcrumb?>
 <div class="main-content">
 <div class="container-fluid">
-	<div class="col-xs-12 col-lg-10 col-center padding-0 categorydiv">
+	<div class="col-xs-12 col-lg-11 col-center padding-0 categorydiv">
 <div class="col-xs-12 col-lg-12">
 	<?php
 		if($this->session->flashdata('message')!=null){

@@ -3,10 +3,10 @@
 <div class="main-content">
 <div class="container-fluid">
 	<div class="row">
-<div class="col-xs-12 col-lg-3 pull-left padding-0">
+<div class="col-xs-12 col-sm-3 col-lg-2 pull-left padding-0">
 	<?php $CI->get_sidebar_menu();?>
 </div>
-<div class="col-xs-12 col-lg-9 pull-left">
+<div class="col-xs-12 col-sm-9 col-lg-10 pull-left">
 	<?php
 		if($this->session->flashdata('message')!=null){
 				echo '<div class="alert alert-success">'.$this->session->flashdata('message').'! </div>';
